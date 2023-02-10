@@ -1,4 +1,3 @@
-import {client} from 'infinitymint/dist/client';
 import RedisServer from 'redis-server';
 import SteamAPI from 'steamapi';
 import 'dotenv/config';
@@ -6,20 +5,18 @@ import 'dotenv/config';
 class TraderBot {
     public steamApi;
     public redisServer;
-    public redisPort: number;
     public port: number;
 
-    constructor() {
+    constructor(port = 6379) {
         this.steamApi = new SteamAPI(require('process').env.STEAMAPI_TOKEN);
-        this.port = port;
         this.redisServer = new RedisServer(this.port);
-        this.redisPort = redisPort;
+        this.port = port;
     }
 
     private startRedisServer(): void {
         this.redisServer.open().then(err => {
             if (err === null) {
-                console.log(`Redis Server listening on http://localhost:${this.redisPort}`);
+                console.log(`Redis Server listening on http://localhost:${this.port}`);
             }
             else {
                 console.error(err.stack);
@@ -34,9 +31,7 @@ class TraderBot {
     }
 
     public start() {
-        this.server.listen(this.port, () => {
-            console.log(`TF2 bot listening in on ${this.port}`);
-        });
+        this.startRedisServer();
     }
 }
 
