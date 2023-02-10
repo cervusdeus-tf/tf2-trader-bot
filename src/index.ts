@@ -1,1 +1,5 @@
-import {client} from 'infinitymint/dist/client';
+import TraderBot from './trader-bot';
+
+(async() => {
+    new TraderBot().start();
+})

@@ -2,7 +2,7 @@
   "name": "infintiymint-typescript-boilerplate",
   "homepage": "https://github.com/0x0zAgency/infinitymint-beta#readme",
   "version": "1.0.0",
-  "description": "",
+  "description": "TF2 Trading bot for the summertime ;>",
   "main": "dist/index.js",
   "directories": {
     "test": "tests"
@@ -12,18 +12,23 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "bpx ts-node index.ts",
+    "start": "npx ts-node index.ts",
     "postinstall": "npx hardhat compile && npx tsc"
   },
-  "author": "",
+  "author": "Kae Iacusia",
   "license": "ISC",
   "dependencies": {
-    "infinitymint": "latest"
+    "dotenv": "^16.0.3",
+    "infinitymint": "latest",
+    "redis-server": "^1.2.2",
+    "steamapi": "^2.2.0"
   },
   "devDependencies": {
+    "@typechain/hardhat": "^6.1.5",
     "@types/module-alias": "^2.0.1",
     "@types/node": "^18.11.18",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }

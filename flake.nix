@@ -37,7 +37,7 @@
         shellHook = ''
           export PATH="$PWD/node_modules/.bin/:$PATH"
           alias scripts='jq ".scripts" package.json'
-      		alias run='npm run'
+      		alias run=yarn run'
           alias g='git' \
               ga='g add' \
               gl='g pull' \
@@ -50,7 +50,6 @@
       };
 
       packages.tf2_trader_bot = builtProject;
-      packages.reactFrontend = reactFrontend;
       packages.default = self.packages.${system}.tf2_trader_bot;
     }
   );
