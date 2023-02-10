@@ -1,5 +1,5 @@
 import TraderBot from './trader-bot';
 
-(async() => {
+(async () => {
     new TraderBot().start();
 })
